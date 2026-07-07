@@ -155,7 +155,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0
 .ring{position:absolute;width:86%;aspect-ratio:1;border:1.5px dashed rgba(14,59,46,.22);border-radius:50%;animation:spin 40s linear infinite;}
 .ring.r2{width:100%;border-color:rgba(122,47,62,.18);animation-duration:60s;animation-direction:reverse;}
 @keyframes spin{to{transform:rotate(360deg);}}
-.bottle{position:relative;z-index:3;width:min(78%,300px);animation:float 5.5s ease-in-out infinite;filter:drop-shadow(0 24px 30px rgba(14,59,46,.22));}
+.bottle{position:relative;z-index:3;display:block;width:min(78%,300px);height:auto;animation:float 5.5s ease-in-out infinite;filter:drop-shadow(0 24px 30px rgba(14,59,46,.22));}
 @keyframes float{0%,100%{transform:translateY(0) rotate(0);}50%{transform:translateY(-16px) rotate(1.4deg);}}
 .leaf{position:absolute;z-index:2;opacity:.85;}
 .leaf.l1{top:8%;left:2%;animation:sway 7s ease-in-out infinite;}
@@ -400,26 +400,7 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
       <svg class="leaf l3" width="34" height="34" viewBox="0 0 52 52"><path d="M26 4C26 4 8 16 8 34C10 30 20 26 26 26C22 32 18 40 26 48C34 40 30 32 26 26C32 26 42 30 44 34C44 16 26 4 26 4Z" fill="#7A2F3E" opacity=".5"/></svg>
 
       <!-- product churan jar -->
-      <svg class="bottle" viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="160" cy="384" rx="104" ry="15" fill="#0E3B2E" opacity=".12"/>
-        <!-- screw lid -->
-        <rect x="66" y="70" width="188" height="56" rx="14" fill="#0E3B2E"/>
-        <rect x="66" y="70" width="188" height="18" rx="9" fill="#124a39"/>
-        <rect x="98" y="52" width="124" height="26" rx="8" fill="#C9932E"/>
-        <!-- jar body -->
-        <rect x="58" y="120" width="204" height="248" rx="26" fill="#F6F0E4" stroke="#0E3B2E" stroke-width="2.6"/>
-        <!-- powder fill at base -->
-        <path d="M60 300 Q160 288 260 300 L260 344 Q260 366 238 366 L82 366 Q60 366 60 344 Z" fill="#E7D6AE" opacity=".7"/>
-        <!-- label -->
-        <rect x="80" y="150" width="160" height="176" rx="10" fill="#FBF8EF" stroke="#C9932E" stroke-width="1.6"/>
-        <circle cx="160" cy="186" r="24" fill="none" stroke="#0E3B2E" stroke-width="1.4"/>
-        <path d="M160 174C160 174 153 182 153 190C153 195 156 198 160 198C164 198 167 195 167 190C167 182 160 174 160 174Z" fill="#C9932E"/>
-        <text x="160" y="234" text-anchor="middle" font-family="Fraunces, serif" font-size="22" fill="#0E3B2E" font-weight="600">Rahat-e-Khaas</text>
-        <text x="160" y="258" text-anchor="middle" font-family="Noto Nastaliq Urdu, serif" font-size="17" fill="#7A2F3E" direction="rtl">راحتِ خاص</text>
-        <line x1="112" y1="276" x2="208" y2="276" stroke="#E2D8B8" stroke-width="1"/>
-        <text x="160" y="294" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8AA07C" letter-spacing="1.5">UNANI HERBAL CHURAN</text>
-        <text x="160" y="310" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#8AA07C" letter-spacing="1">FOR BAWASEER · 100g POWDER</text>
-      </svg>
+      <img class="bottle" src="public/rahat-e-khas.png" alt="Rahat-e-Khaas — Unani herbal churan for bawaseer, 100g powder" loading="eager">
 
       <div class="badge-float bf1">
         <span class="b-ico">✓</span>
