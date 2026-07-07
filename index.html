@@ -499,7 +499,7 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
 .swipe-hint,.dots{display:none;}   /* base: hidden on desktop, enabled in the mobile block below */
 @media(max-width:640px){
   /* shared carousel behaviour: horizontal scroll-snap, edge-to-edge bleed */
-  .cards,.steps,.herb-grid,.stats,.badges{
+  .cards,.steps,.herb-grid,.stats,.badges,.prod-grid{
     display:flex;
     flex-wrap:nowrap;
     gap:14px;
@@ -514,16 +514,20 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
   }
   .cards::-webkit-scrollbar,.steps::-webkit-scrollbar,
   .herb-grid::-webkit-scrollbar,.stats::-webkit-scrollbar,
-  .badges::-webkit-scrollbar{display:none;}
+  .badges::-webkit-scrollbar,.prod-grid::-webkit-scrollbar{display:none;}
 
   /* carousel items must stay visible (don't rely on vertical scroll-reveal) */
-  .cards>*,.steps>*,.herb-grid>*,.stats>*,.badges>*{
+  .cards>*,.steps>*,.herb-grid>*,.stats>*,.badges>*,.prod-grid>*{
     opacity:1!important;transform:none!important;
     scroll-snap-align:center;
   }
 
   /* 1 wide card per screen (with a peek of the next) */
   .cards>*,.steps>*{flex:0 0 85%;scroll-snap-align:center;}
+
+  /* product cards: one app-style card per screen, peek of the next */
+  .prod-grid>*{flex:0 0 80%;scroll-snap-align:center;}
+  .prod-media img{height:200px;}
 
   /* 2 tiles per screen for the 4-up grids */
   .herb-grid>*,.stats>*,.badges>*{flex:0 0 46%;scroll-snap-align:start;}
@@ -757,7 +761,7 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
       <div class="prod-view">Tafseel dekhein <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     </div>
   </div>
-  <p class="swipe-hint">← tap karein →</p>
+  <p class="swipe-hint">← swipe · tap to view →</p>
 </div>
 
 <!-- ===== COMBO PACK ===== -->
@@ -1185,7 +1189,7 @@ document.querySelectorAll('.faq-q').forEach(function(q){
 // ---- Carousel pagination dots (mobile) ----
 window.addEventListener('load',function(){
   if(window.innerWidth>640) return;
-  var carousels=document.querySelectorAll('.cards,.steps,.herb-grid,.stats,.badges');
+  var carousels=document.querySelectorAll('.cards,.steps,.herb-grid,.stats,.badges,.prod-grid');
   carousels.forEach(function(car){
     var items=car.children;
     if(items.length<2) return;
