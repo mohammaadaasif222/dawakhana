@@ -160,6 +160,13 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0
 @keyframes spin{to{transform:rotate(360deg);}}
 .bottle{position:relative;z-index:3;display:block;width:min(78%,300px);height:auto;animation:float 5.5s ease-in-out infinite;filter:drop-shadow(0 24px 30px rgba(14,59,46,.22));}
 @keyframes float{0%,100%{transform:translateY(0) rotate(0);}50%{transform:translateY(-16px) rotate(1.4deg);}}
+/* hero: three products bound as a combo */
+.hero-trio{position:relative;z-index:3;display:flex;align-items:flex-end;justify-content:center;}
+.hero-trio .ht{height:auto;animation:float 5.5s ease-in-out infinite;filter:drop-shadow(0 20px 26px rgba(14,59,46,.24));}
+.hero-trio .ht-main{width:min(50%,190px);z-index:3;position:relative;animation-delay:.6s;}
+.hero-trio .ht-side{width:min(37%,140px);z-index:2;position:relative;}
+.hero-trio .ht-l{margin-right:-15%;animation-delay:0s;}
+.hero-trio .ht-r{margin-left:-15%;animation-delay:1.2s;}
 .leaf{position:absolute;z-index:2;opacity:.85;}
 .leaf.l1{top:8%;left:2%;animation:sway 7s ease-in-out infinite;}
 .leaf.l2{bottom:10%;right:0;animation:sway 9s ease-in-out infinite reverse;}
@@ -297,8 +304,63 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
 .totop.show{opacity:1;transform:none;pointer-events:auto;}
 .totop:hover{background:var(--gold);color:var(--fern-deep);}
 
+/* ============ COMBO PACK ============ */
+.combo{background:linear-gradient(168deg,var(--fern),var(--fern-deep));color:var(--parchment);position:relative;overflow:hidden;}
+.combo::before{content:"";position:absolute;top:-25%;left:-8%;width:46%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(201,147,46,.18),transparent 70%);}
+.combo::after{content:"";position:absolute;bottom:-30%;right:-6%;width:50%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(122,47,62,.22),transparent 70%);}
+.combo .wrap{position:relative;z-index:2;}
+.combo .section-head h2{color:var(--parchment);}
+.combo .section-head p{color:#CBD6C0;}
+.combo-tag{background:rgba(201,147,46,.16);border:1px solid rgba(228,192,102,.4);color:var(--gold-soft);
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  padding:6px 14px;border-radius:30px;display:inline-flex;align-items:center;gap:8px;}
+.combo-tag .pulse{width:7px;height:7px;border-radius:50%;background:var(--gold-soft);animation:pulseDot 1.6s ease-in-out infinite;}
+@keyframes pulseDot{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(228,192,102,.5);}50%{opacity:.7;box-shadow:0 0 0 6px rgba(228,192,102,0);}}
+
+/* the three bottles tied together with a satin ribbon */
+.combo-stage{position:relative;display:flex;flex-direction:column;align-items:center;gap:20px;margin:8px auto 46px;max-width:560px;padding:24px 0 8px;}
+.combo-glow{position:absolute;top:38%;left:50%;transform:translate(-50%,-50%);width:88%;aspect-ratio:1.6/1;border-radius:50%;background:radial-gradient(ellipse,rgba(201,147,46,.28),transparent 66%);animation:pulse 6s ease-in-out infinite;}
+/* the whole tied bundle floats as one unit */
+.combo-bottles{position:relative;z-index:3;display:flex;align-items:flex-end;justify-content:center;width:max-content;max-width:100%;margin:0 auto;animation:float 6.5s ease-in-out infinite;}
+.combo-bottles .cb{height:auto;filter:drop-shadow(0 18px 22px rgba(0,0,0,.34));}
+.combo-bottles .cb-oil{width:clamp(80px,12.5vw,142px);margin-right:-11%;z-index:2;}
+.combo-bottles .cb-churan{width:clamp(94px,15vw,168px);z-index:3;}
+.combo-bottles .cb-majoon{width:clamp(84px,13vw,150px);margin-left:-11%;z-index:2;}
+/* real ribbon image laid across the bottles, bow tied over the mid-body */
+.combo-ribbon-img{position:absolute;left:51%;top:75%;transform:translate(-50%,-50%);width:70%;max-width:none;height:auto;z-index:6;pointer-events:none;filter:drop-shadow(0 6px 10px rgba(0,0,0,.28));}
+.combo-labels{display:flex;justify-content:center;gap:clamp(12px,5vw,44px);position:relative;z-index:4;text-align:center;}
+.combo-labels span{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:var(--gold-soft);display:block;}
+.combo-labels small{display:block;font-family:'IBM Plex Mono',monospace;font-style:normal;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#9FB097;margin-top:3px;}
+
+/* per-product ingredient columns */
+.combo-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.combo-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:26px 24px;
+  transition:transform .4s var(--ease),background .4s,border-color .4s;position:relative;overflow:hidden;}
+.combo-card:hover{transform:translateY(-8px);background:rgba(255,255,255,.08);border-color:var(--gold-soft);}
+.combo-card .step-pill{position:absolute;top:20px;right:20px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;
+  color:var(--fern-deep);background:var(--gold-soft);padding:3px 9px;border-radius:20px;}
+.combo-card .ci-role{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);}
+.combo-card h3{color:var(--parchment);font-size:20px;font-style:italic;margin:8px 0 2px;}
+.combo-card .ci-ur{font-family:'Noto Nastaliq Urdu',serif;font-size:15px;color:var(--gold-soft);direction:rtl;}
+.combo-card ul{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:9px;}
+.combo-card li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:#DCE3D3;line-height:1.4;}
+.combo-card li::before{content:"";flex:none;width:7px;height:7px;margin-top:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(201,147,46,.16);}
+.combo-card li b{color:var(--parchment);font-weight:600;}
+
+/* combo offer bar */
+.combo-offer{margin-top:40px;background:rgba(245,240,225,.06);border:1px solid rgba(228,192,102,.3);border-radius:20px;
+  padding:26px 30px;display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;}
+.combo-offer .co-price{display:flex;align-items:baseline;gap:12px;}
+.combo-offer .co-now{font-family:'Fraunces',serif;font-size:38px;color:var(--gold-soft);font-weight:600;}
+.combo-offer .co-was{font-size:18px;color:#9FB097;text-decoration:line-through;}
+.combo-offer .co-off{background:var(--gold);color:var(--fern-deep);font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;font-family:'IBM Plex Mono',monospace;}
+.combo-offer .co-text small{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);}
+
 /* ============ RESPONSIVE ============ */
 @media(max-width:920px){
+  .combo-cards{grid-template-columns:1fr;}
+  .combo-offer{flex-direction:column;text-align:center;}
+  .combo-offer .btn{width:100%;justify-content:center;}
   .hero-grid,.strip .wrap{grid-template-columns:1fr;gap:40px;}
   .product-stage{order:-1;}
   .herb-grid{grid-template-columns:repeat(2,1fr);}
@@ -320,6 +382,9 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
   .trust-row{gap:14px;}
   .hero{padding:28px 0 44px;}
   .badge-float{display:none;}
+  .combo-stage{margin-bottom:30px;padding-bottom:24px;}
+  .combo-trio figcaption{font-size:12px;}
+  .combo-offer .co-now{font-size:32px;}
 }
 
 /* ============ MOBILE APP SHELL ============ */
@@ -480,6 +545,7 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
       </div>
       <div class="nav-links">
         <a href="#formula">The Formula</a>
+        <a href="#combo">Combo</a>
         <a href="#how">How It Works</a>
         <a href="#reviews">Reviews</a>
         <a href="#faq">FAQ</a>
@@ -497,6 +563,7 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
 <aside class="drawer" id="drawer">
   <button class="drawer-close" id="drawerClose" aria-label="Close">×</button>
   <a href="#formula">The Formula</a>
+  <a href="#combo">Combo Pack</a>
   <a href="#how">How It Works</a>
   <a href="#reviews">Reviews</a>
   <a href="#faq">FAQ</a>
@@ -508,11 +575,11 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
 <section class="hero" id="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow reveal">راحتِ خاص · Rahat-e-Khaas</span>
-      <h1 class="reveal d1">Bawaseer se <em>rahat</em>, <span class="grad">purane nuskhe</span> ke saath.</h1>
-      <p class="sub reveal d2">Rahat-e-Khaas — Hiqmat Dawakhana ka khandani Unani formula. Andar se ilaj karta hai, na koi steroid, na jalan, na operation ka darr. Bina cheera-phaadi ke qudrati rahat.</p>
+      <span class="eyebrow reveal">حکمت کومبو · 3-in-1 Combo</span>
+      <h1 class="reveal d1">Bawaseer se <em>rahat</em>, ab <span class="grad">3-in-1 combo</span> ke saath.</h1>
+      <p class="sub reveal d2">Hiqmat Dawakhana ka mukammal Unani routine — <b>Shifa Oil</b> bahar se sukoon, <b>Rahat-e-Khaas</b> churan andar se ilaj, aur <b>Nura Majoon</b> taqat ke liye. Teeno saath — tez aur mukammal rahat, bina steroid, bina operation.</p>
       <div class="hero-cta reveal d3">
-        <button class="btn" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">Order Rahat-e-Khaas — ₹749</button>
+        <button class="btn" onclick="document.getElementById('combo').scrollIntoView({behavior:'smooth'})">Combo Dekhein — ₹1799</button>
         <button class="btn btn-outline" onclick="document.getElementById('formula').scrollIntoView({behavior:'smooth'})">Ajza Dekhein ↓</button>
       </div>
       <div class="trust-row reveal d4">
@@ -533,12 +600,16 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
       <svg class="leaf l2" width="44" height="44" viewBox="0 0 52 52"><path d="M26 4C26 4 8 16 8 34C10 30 20 26 26 26C22 32 18 40 26 48C34 40 30 32 26 26C32 26 42 30 44 34C44 16 26 4 26 4Z" fill="#C9932E" opacity=".65"/></svg>
       <svg class="leaf l3" width="34" height="34" viewBox="0 0 52 52"><path d="M26 4C26 4 8 16 8 34C10 30 20 26 26 26C22 32 18 40 26 48C34 40 30 32 26 26C32 26 42 30 44 34C44 16 26 4 26 4Z" fill="#7A2F3E" opacity=".5"/></svg>
 
-      <!-- product churan jar -->
-      <img class="bottle" src="public/rahat-e-khas.png" alt="Rahat-e-Khaas — Unani herbal churan for bawaseer, 100g powder" loading="eager">
+      <!-- combo: three products together -->
+      <div class="hero-trio">
+        <img class="ht ht-side ht-l" src="public/hikmat-shifa-oil.png" alt="Hikmat Shifa Oil — Unani herbal tel" loading="eager">
+        <img class="ht ht-main" src="public/rahat-e-khas.png" alt="Rahat-e-Khaas — Unani herbal churan for bawaseer" loading="eager">
+        <img class="ht ht-side ht-r" src="public/hikmat-nura-majoon.png" alt="Hikmat Nura Majoon — Unani herbal tonic" loading="eager">
+      </div>
 
       <div class="badge-float bf1">
         <span class="b-ico">✓</span>
-        <div>100% Qudrati<small>NO STEROIDS</small></div>
+        <div>3-in-1 Combo<small>OIL · CHURAN · MAJOON</small></div>
       </div>
       <div class="badge-float bf2">
         <span class="b-ico">★</span>
@@ -613,32 +684,118 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
   <p class="swipe-hint">← swipe →</p>
 </div>
 
+<!-- ===== COMBO PACK ===== -->
+<div class="combo section" id="combo">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="combo-tag"><span class="pulse"></span>Teen ka Combo · Tez Natija</span>
+      <h2 style="margin-top:16px">Teen tarkeeb, ek routine — tez aur mukammal rahat.</h2>
+      <p>Bahar se sukoon, andar se ilaj aur qudrati taqat — teeno saath milkar jald asar dikhaate hain, akele se kahin behtar.</p>
+    </div>
+
+    <!-- three bottles tied together with a satin ribbon -->
+    <div class="combo-stage reveal d1">
+      <div class="combo-glow"></div>
+      <div class="combo-bottles">
+        <img class="cb cb-oil" src="public/hikmat-shifa-oil.png" alt="Hikmat Shifa Oil — Unani herbal tel for external soothing" loading="lazy">
+        <img class="cb cb-churan" src="public/rahat-e-khas.png" alt="Rahat-e-Khaas — Unani herbal churan, taken with dahi" loading="lazy">
+        <img class="cb cb-majoon" src="public/hikmat-nura-majoon.png" alt="Hikmat Nura Majoon — Unani herbal tonic paste" loading="lazy">
+        <img class="combo-ribbon-img" src="public/ribbon.png" alt="" aria-hidden="true">
+      </div>
+      <div class="combo-labels">
+        <span>Shifa Oil<small>Bahari Sukoon</small></span>
+        <span>Rahat-e-Khaas<small>Andar se Ilaj</small></span>
+        <span>Nura Majoon<small>Taqat &amp; Tawazun</small></span>
+      </div>
+    </div>
+
+    <!-- each product's ingredients -->
+    <div class="combo-cards">
+      <div class="combo-card reveal d1">
+        <span class="step-pill">01</span>
+        <div class="ci-role">Bahar lagayein · Topical</div>
+        <h3>Hikmat Shifa Oil</h3>
+        <div class="ci-ur urdu">حکمت شفا آئل</div>
+        <ul>
+          <li><b>Roghan Kunjad</b> — Til ka tel, bahari nuskhon ki buniyaad</li>
+          <li><b>Post Anjeer</b> — Anjeer chhaal, jalan ko sukoon</li>
+          <li><b>Zafran</b> — Kesar, tissue ko taskeen &amp; toning</li>
+          <li><b>Babuna</b> — Chamomile, thandak aur aaram</li>
+          <li><b>Roghan-e-Gul</b> — Gulab ka tel, khushboo &amp; thandak</li>
+          <li><b>Mom-e-Khaam</b> — Qudrati beeswax base</li>
+        </ul>
+      </div>
+
+      <div class="combo-card reveal d2">
+        <span class="step-pill">02</span>
+        <div class="ci-role">Dahi ke saath · Churan</div>
+        <h3>Rahat-e-Khaas</h3>
+        <div class="ci-ur urdu">راحتِ خاص</div>
+        <ul>
+          <li><b>Nagkesar</b> — Khoon behne &amp; jalan rokne mein madad</li>
+          <li><b>Haritaki (Hadd)</b> — Pait saaf, behtar hazma</li>
+          <li><b>Neem</b> — Qudrati antiseptic, sujan se hifazat</li>
+          <li><b>Rasaut</b> — Masse simatne &amp; sujan ghatane mein</li>
+        </ul>
+      </div>
+
+      <div class="combo-card reveal d3">
+        <span class="step-pill">03</span>
+        <div class="ci-role">Raat ko · Majoon</div>
+        <h3>Hikmat Nura Majoon</h3>
+        <div class="ci-ur urdu">حکمت نورہ معجون</div>
+        <ul>
+          <li><b>Anjeer</b> — Hazme ko aasaani</li>
+          <li><b>Filfil Siyah</b> — Kaali mirch, hazma stimulant</li>
+          <li><b>Zeera Siyah</b> — Kaala zeera, garam &amp; hazme mein madad</li>
+          <li><b>Habb-ul-Aas</b> — Myrtle, ragon/gardish ka sahara</li>
+          <li><b>Mundi</b> — Unani jad, andaruni tawazun</li>
+          <li><b>Shahad</b> — Qudrati shahad base &amp; mithaas</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- combo offer -->
+    <div class="combo-offer reveal d2">
+      <div class="co-text">
+        <div class="co-price">
+          <span class="co-now">₹1799</span>
+          <span class="co-was">₹2497</span>
+          <span class="co-off">28% OFF</span>
+        </div>
+        <small>Poora combo · Oil + Churan + Majoon · 1 maheene ka course</small>
+      </div>
+      <a class="btn btn-gold" href="https://wa.me/919837493926?text=Assalam-o-alaikum%21%20Mujhe%20Hiqmat%203-in-1%20Combo%20Pack%20order%20karna%20hai%20-%20Shifa%20Oil%20%2B%20Rahat-e-Khaas%20%2B%20Nura%20Majoon%20%28Rs%201799%2C%20COD%29.%20Baraye%20meherbani%20tafseel%20bhejein." target="_blank" rel="noopener">Combo Order Karein (WhatsApp)</a>
+    </div>
+  </div>
+</div>
+
 <!-- ===== HOW IT WORKS ===== -->
 <div class="wrap section" id="how" style="padding-top:0;">
   <div class="section-head center reveal">
-    <span class="eyebrow">Istemal ka Tarika · How It Works</span>
-    <h2>Teen aasan qadam, rozana ki ek aadat.</h2>
+    <span class="eyebrow">Combo Routine · How It Works</span>
+    <h2>Teen product, ek rozana routine — subah se raat tak.</h2>
   </div>
   <div class="steps">
     <div class="step reveal d1">
       <div class="num">1</div>
-      <div class="tag">Subah &amp; Shaam / Din 1</div>
-      <h3>1 chammach dahi ke saath, din mein 2 baar</h3>
-      <p>Subah 1 chammach churan 100 mg dahi ke saath, aur shaam 1 chammach churan 100 mg dahi ke saath — pehle din se hi hazme ko sahara dena shuru.</p>
+      <div class="tag">Subah · Shifa Oil</div>
+      <h3>Bahar Shifa Oil lagayein</h3>
+      <p>Subah nahaane ke baad Hikmat Shifa Oil halke haath se bahari hisse par lagayein — foran thandak aur sukoon, upar se araam.</p>
       <div class="step-line">→</div>
     </div>
     <div class="step reveal d2">
       <div class="num">2</div>
-      <div class="tag">Hafta 1–2</div>
-      <h3>Jalan aur dard mein kami</h3>
-      <p>Zyadatar log do hafton mein aasaan aur behtar rozana routine mehsoos karte hain.</p>
+      <div class="tag">Subah &amp; Shaam · Churan</div>
+      <h3>1 chammach churan dahi ke saath</h3>
+      <p>Din mein 2 baar, 1 chammach Rahat-e-Khaas churan 100 mg dahi ke saath — andar se hazme, khoon ki gardish aur pait ki safai ko sahara.</p>
       <div class="step-line">→</div>
     </div>
     <div class="step reveal d3">
       <div class="num">3</div>
-      <div class="tag">Hafta 3–4</div>
-      <h3>Rahat ban jaaye aadat</h3>
-      <p>Ek maheene ke course ke baad baithna, chalna aur rozmarra ki zindagi phir se apni.</p>
+      <div class="tag">Raat · Nura Majoon</div>
+      <h3>Sone se pehle ½ chammach Majoon</h3>
+      <p>Raat ko Hikmat Nura Majoon — qudrati taqat aur andaruni tawazun ke liye. Teeno milkar tez aur mukammal natija dete hain.</p>
     </div>
   </div>
   <p class="swipe-hint">← swipe →</p>
@@ -737,7 +894,7 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
     </div>
     <div class="reveal d3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
       <button class="btn btn-gold">Order Now (COD Available)</button>
-      <a class="btn btn-outline" style="border-color:var(--gold-soft);color:var(--gold-soft)" href="https://wa.me/919999999999" target="_blank" rel="noopener">WhatsApp par Poochein</a>
+      <a class="btn btn-outline" style="border-color:var(--gold-soft);color:var(--gold-soft)" href="https://wa.me/919837493926" target="_blank" rel="noopener">WhatsApp par Poochein</a>
     </div>
   </div>
 </div>
@@ -754,14 +911,15 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
       <div class="foot-col">
         <h4>Product</h4>
         <a href="#formula">Rahat-e-Khaas</a>
+        <a href="#combo">Combo Pack (3-in-1)</a>
         <a href="#formula">Ajza / Ingredients</a>
         <a href="#how">Istemal ka Tarika</a>
         <a href="#reviews">Reviews</a>
       </div>
       <div class="foot-col">
         <h4>Raabta / Contact</h4>
-        <a href="tel:+919999999999">+91 99999 99999</a>
-        <a href="https://wa.me/919999999999" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="tel:+919837493926">+91 98374 93926</a>
+        <a href="https://wa.me/919837493926" target="_blank" rel="noopener">WhatsApp</a>
         <a href="mailto:care@hiqmatdawakhana.com">care@hiqmatdawakhana.com</a>
         <a href="#faq">FAQ</a>
       </div>
