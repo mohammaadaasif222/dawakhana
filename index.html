@@ -182,7 +182,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0
 
 /* ============ MARQUEE ============ */
 .marquee{background:var(--fern);color:var(--parchment);padding:16px 0;overflow:hidden;position:relative;}
-.marquee-track{display:flex;gap:44px;width:max-content;animation:scroll-x 28s linear infinite;}
+.marquee-track{display:flex;gap:44px;width:max-content;animation:scroll-x 55s linear infinite;}
 .marquee:hover .marquee-track{animation-play-state:paused;}
 @keyframes scroll-x{to{transform:translateX(-50%);}}
 .marquee-item{display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#D9DFCD;white-space:nowrap;}
@@ -279,6 +279,13 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0
 .cta-final .wrap{position:relative;z-index:2;}
 .cta-final h2{color:#F6E7DC;font-size:clamp(28px,4.6vw,42px);max-width:620px;margin:14px auto 12px;}
 .cta-final p{max-width:500px;margin:0 auto 30px;color:#E7CDBE;font-size:16px;}
+.cta-product{width:min(80%,300px);height:auto;margin:0 auto;filter:drop-shadow(0 24px 36px rgba(0,0,0,.42));animation:float 5.5s ease-in-out infinite;}
+.cta-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center;}
+.cta-copy{text-align:left;}
+.cta-copy h2{margin:14px 0 12px;max-width:none;}
+.cta-copy p{margin:0 0 30px;max-width:480px;}
+.cta-media{display:flex;justify-content:center;}
+.cta-actions{display:flex;gap:14px;flex-wrap:wrap;}
 .price{display:inline-flex;align-items:baseline;gap:12px;margin-bottom:26px;}
 .price .now{font-family:'Fraunces',serif;font-size:44px;color:var(--gold-soft);font-weight:600;}
 .price .was{font-size:20px;color:#C99;text-decoration:line-through;}
@@ -404,6 +411,12 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
   .combo-offer .btn{width:100%;justify-content:center;}
   .hero-grid,.strip .wrap{grid-template-columns:1fr;gap:40px;}
   .product-stage{order:-1;}
+  .cta-grid{grid-template-columns:1fr;gap:30px;}
+  .cta-copy{text-align:center;}
+  .cta-copy h2{margin-inline:auto;}
+  .cta-copy p{margin-inline:auto;}
+  .cta-actions{justify-content:center;}
+  .cta-media{order:-1;}
   .herb-grid{grid-template-columns:repeat(2,1fr);}
   .steps{grid-template-columns:1fr;}
   .step-line{display:none;}
@@ -597,7 +610,7 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
         <a href="#faq">FAQ</a>
       </div>
       <div class="nav-cta">
-        <button class="btn" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">Order Now — ₹749</button>
+        <button class="btn" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">Order Now — ₹999</button>
         <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </nav>
@@ -615,7 +628,7 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
   <a href="#reviews">Reviews</a>
   <a href="#faq">FAQ</a>
   <a href="#order">Order</a>
-  <button class="btn btn-gold" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">Order Now — ₹749</button>
+  <button class="btn btn-gold" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">Order Now — ₹999</button>
 </aside>
 
 <!-- ===== HERO ===== -->
@@ -626,7 +639,7 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
       <h1 class="reveal d1">Bawaseer se <em>rahat</em>, ab <span class="grad">3-in-1 combo</span> ke saath.</h1>
       <p class="sub reveal d2">Hiqmat Dawakhana ka mukammal Unani routine — <b>Shifa Oil</b> bahar se sukoon, <b>Rahat-e-Khaas</b> churan andar se ilaj, aur <b>Nura Majoon</b> taqat ke liye. Teeno saath — tez aur mukammal rahat, bina steroid, bina operation.</p>
       <div class="hero-cta reveal d3">
-        <button class="btn" onclick="document.getElementById('combo').scrollIntoView({behavior:'smooth'})">Combo Dekhein — ₹1799</button>
+        <button class="btn" onclick="document.getElementById('combo').scrollIntoView({behavior:'smooth'})">Combo Dekhein — ₹1849</button>
         <button class="btn btn-outline" onclick="document.getElementById('formula').scrollIntoView({behavior:'smooth'})">Ajza Dekhein ↓</button>
       </div>
       <div class="trust-row reveal d4">
@@ -787,13 +800,13 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
     <div class="combo-offer reveal d2">
       <div class="co-text">
         <div class="co-price">
-          <span class="co-now">₹1799</span>
-          <span class="co-was">₹2497</span>
-          <span class="co-off">28% OFF</span>
+          <span class="co-now">₹1849</span>
+          <span class="co-was">₹3000</span>
+          <span class="co-off">38% OFF</span>
         </div>
         <small>Poora combo · Oil + Churan + Majoon · 1 maheene ka course</small>
       </div>
-      <a class="btn btn-gold" href="https://wa.me/919837493926?text=Assalam-o-alaikum%21%20Mujhe%20Hiqmat%203-in-1%20Combo%20Pack%20order%20karna%20hai%20-%20Shifa%20Oil%20%2B%20Rahat-e-Khaas%20%2B%20Nura%20Majoon%20%28Rs%201799%2C%20COD%29.%20Baraye%20meherbani%20tafseel%20bhejein." target="_blank" rel="noopener">Combo Order Karein (WhatsApp)</a>
+      <a class="btn btn-gold" href="https://wa.me/919837493926?text=Assalam-o-alaikum%21%20Mujhe%20Hiqmat%203-in-1%20Combo%20Pack%20order%20karna%20hai%20-%20Shifa%20Oil%20%2B%20Rahat-e-Khaas%20%2B%20Nura%20Majoon%20%28Rs%201849%2C%20COD%29.%20Baraye%20meherbani%20tafseel%20bhejein." target="_blank" rel="noopener">Combo Order Karein (WhatsApp)</a>
     </div>
   </div>
 </div>
@@ -911,18 +924,23 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
 
 <!-- ===== CTA ===== -->
 <div class="cta-final section" id="order">
-  <div class="wrap">
-    <span class="eyebrow reveal" style="color:var(--gold-soft)">Aaj hi Shuru Karein</span>
-    <h2 class="reveal d1">Rahat mushkil nahi honi chahiye.</h2>
-    <p class="reveal d2">Rahat-e-Khaas ka ek maheene ka course order karein — bina operation, bina steroid, qudrati rahat.</p>
-    <div class="price reveal d2">
-      <span class="now">₹749</span>
-      <span class="was">₹1199</span>
-      <span class="off">37% OFF</span>
+  <div class="wrap cta-grid">
+    <div class="cta-media reveal d1">
+      <img class="cta-product" src="public/rahat-e-khas-solo.png" alt="Rahat-e-Khaas — Unani herbal churan for bawaseer" loading="lazy">
     </div>
-    <div class="reveal d3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <button class="btn btn-gold">Order Now (COD Available)</button>
-      <a class="btn btn-outline" style="border-color:var(--gold-soft);color:var(--gold-soft)" href="https://wa.me/919837493926" target="_blank" rel="noopener">WhatsApp par Poochein</a>
+    <div class="cta-copy">
+      <span class="eyebrow reveal" style="color:var(--gold-soft)">Aaj hi Shuru Karein</span>
+      <h2 class="reveal d1">Rahat mushkil nahi honi chahiye.</h2>
+      <p class="reveal d2">Rahat-e-Khaas ka ek maheene ka course order karein — bina operation, bina steroid, qudrati rahat.</p>
+      <div class="price reveal d2">
+        <span class="now">₹999</span>
+        <span class="was">₹1499</span>
+        <span class="off">33% OFF</span>
+      </div>
+      <div class="cta-actions reveal d3">
+        <button class="btn btn-gold">Order Now (COD Available)</button>
+        <a class="btn btn-outline" style="border-color:var(--gold-soft);color:var(--gold-soft)" href="https://wa.me/919837493926" target="_blank" rel="noopener">WhatsApp par Poochein</a>
+      </div>
     </div>
   </div>
 </div>
@@ -1024,7 +1042,7 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
       name:'Hiqmat Shifa Oil', ur:'حکمت شفا آئل',
       role:'Bahari Sukoon · Topical Oil',
       img:'public/hikmat-shifa-oil-solo.png', size:'30 ml', form:'Bahar lagayein',
-      price:'₹499', was:'₹699',
+      price:'₹699', was:'₹999',
       desc:'Ek Unani herbal tel jo sirf bahari istemaal ke liye taiyar kiya gaya hai. Cold-pressed aur 100% qudrati — mutasira hisse ko foran thandak, sukoon aur aaram deta hai. Na koi chemical, na steroid.',
       ing:['Roghan Kunjad — Til ka tel','Post Anjeer — Anjeer chhaal','Zafran — Kesar','Babuna — Chamomile','Roghan-e-Gul — Gulab ka tel','Mom-e-Khaam — Beeswax base'],
       use:'Subah aur raat, saaf haath se mutasira bahari hisse par halke se lagayein. Behtareen natije ke liye rozana istemaal karein.'
@@ -1033,7 +1051,7 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
       name:'Rahat-e-Khaas', ur:'راحتِ خاص',
       role:'Andar se Ilaj · Ayurvedic Churan',
       img:'public/rahat-e-khas-solo.png', size:'300 g', form:'Dahi ke saath',
-      price:'₹749', was:'₹1199',
+      price:'₹999', was:'₹1499',
       desc:'Hamara flagship Unani churan jo bawaseer (piles) mein andar se kaam karta hai — hazma, khoon ki gardish aur pait ki safai ko behtar banata hai. Na steroid, na jalan, na operation ka darr.',
       ing:['Nagkesar — Khoon & jalan rokne mein','Haritaki (Hadd) — Pait saaf, behtar hazma','Neem — Qudrati antiseptic','Rasaut — Masse simatne mein madad'],
       use:'Din mein 2 baar — subah aur shaam — 1 chammach churan 100 mg (thoda) dahi ke saath. Kam se kam 1 maheena lagatar istemaal karein.'
@@ -1042,7 +1060,7 @@ footer{background:var(--fern-deep);color:#A9BAA6;padding:56px 0 30px;font-size:1
       name:'Hiqmat Nura Majoon', ur:'حکمت نورہ معجون',
       role:'Taqat & Tawazun · Herbal Majoon',
       img:'public/hikmat-nura-majoon-solo.png', size:'150 g', form:'Raat ko',
-      price:'₹599', was:'₹899',
+      price:'₹799', was:'₹1199',
       desc:'Ek Unani herbal paste (majoon) jo andaruni taqat, hazma aur jism ke tawazun ko sahara deta hai — energy, stamina aur vitality ke liye. Combo routine ko mukammal karta hai.',
       ing:['Anjeer — Hazme ko aasaani','Filfil Siyah — Kaali mirch','Zeera Siyah — Kaala zeera','Habb-ul-Aas — Myrtle, gardish ka sahara','Mundi — Andaruni tawazun','Shahad — Qudrati shahad base'],
       use:'Raat ko sone se pehle ½ chammach (taqreeban 5–10 g) doodh ya paani ke saath. Rozana istemaal karein.'
@@ -1253,3 +1271,7 @@ document.querySelectorAll('.stat').forEach(function(s){statObserver.observe(s);}
 </script>
 </body>
 </html>
+
+
+18001036001
+
