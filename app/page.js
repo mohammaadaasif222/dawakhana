@@ -16,7 +16,7 @@ export default function Home() {
           size: '30 ml',
           form: 'Bahar lagayein',
           price: '₹699',
-          was: '₹999',
+          was: '₹899',
           desc: 'Ek Unani herbal tel jo sirf bahari istemaal ke liye taiyar kiya gaya hai. Cold-pressed aur 100% qudrati — mutasira hisse ko foran thandak, sukoon aur aaram deta hai. Na koi chemical, na steroid.',
           ing: ['Roghan Kunjad — Til ka tel', 'Post Anjeer — Anjeer chhaal', 'Zafran — Kesar', 'Babuna — Chamomile', 'Roghan-e-Gul — Gulab ka tel', 'Mom-e-Khaam — Beeswax base'],
           use: 'Subah aur raat, saaf haath se mutasira bahari hisse par halke se lagayein. Behtareen natije ke liye rozana istemaal karein.',
@@ -41,8 +41,8 @@ export default function Home() {
           img: '/hikmat-nura-majoon-solo.png',
           size: '150 g',
           form: 'Raat ko',
-          price: '₹799',
-          was: '₹1199',
+          price: '₹649',
+          was: '₹851',
           desc: 'Ek Unani herbal paste (majoon) jo andaruni taqat, hazma aur jism ke tawazun ko sahara deta hai — energy, stamina aur vitality ke liye. Combo routine ko mukammal karta hai.',
           ing: ['Anjeer — Hazme ko aasaani', 'Filfil Siyah — Kaali mirch', 'Zeera Siyah — Kaala zeera', 'Habb-ul-Aas — Myrtle, gardish ka sahara', 'Mundi — Andaruni tawazun', 'Shahad — Qudrati shahad base'],
           use: 'Raat ko sone se pehle ½ chammach (taqreeban 5–10 g) doodh ya paani ke saath. Rozana istemaal karein.',
@@ -664,8 +664,8 @@ export default function Home() {
             <div className="co-text">
               <div className="co-price">
                 <span className="co-now">₹1849</span>
-                <span className="co-was">₹3000</span>
-                <span className="co-off">38% OFF</span>
+                <span className="co-was">₹3249</span>
+                <span className="co-off">43% OFF</span>
               </div>
               <small>Poora combo · Oil + Churan + Majoon · 1 maheene ka course</small>
             </div>
