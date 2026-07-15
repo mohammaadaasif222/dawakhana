@@ -4,6 +4,11 @@ export const metadata = {
   title: 'Hiqmat Dawakhana — Rahat-e-Khaas | Bawaseer ka Herbal Ilaj',
   description:
     'Rahat-e-Khaas by Hiqmat Dawakhana — a traditional Unani herbal formula for natural relief from piles (bawaseer). No steroids, no surgery.',
+  icons: {
+    icon: '/main-logo.png',
+    shortcut: '/main-logo.png',
+    apple: '/main-logo.png',
+  },
 };
 
 export const viewport = {
@@ -17,6 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/main-logo.png" sizes="any" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link

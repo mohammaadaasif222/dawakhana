@@ -320,11 +320,7 @@ export default function Home() {
           <nav>
             <div className="logo" onClick={() => scrollTo({ top: 0, behavior: 'smooth' })}>
               <div className="logo-mark">
-                <svg viewBox="0 0 26 26" fill="none">
-                  <path d="M13 24C13 24 4 18 4 11C4 7 7 4.5 10.5 5.5C12 5.9 13 7 13 7C13 7 14 5.9 15.5 5.5C19 4.5 22 7 22 11C22 18 13 24 13 24Z" fill="#E4C066" />
-                  <path d="M13 7V21" stroke="#0E3B2E" strokeWidth="1.2" strokeLinecap="round" />
-                  <path d="M13 13C13 13 10 11 8.5 13M13 16C13 16 16 14 17.5 16" stroke="#0E3B2E" strokeWidth="1" strokeLinecap="round" />
-                </svg>
+                <img src="/main-logo.png" alt="Hiqmat Dawakhana logo" className="logo-image" />
               </div>
               <div className="brand-flip" id="brandFlip">
                 <div className="brand-face" data-face="en">
